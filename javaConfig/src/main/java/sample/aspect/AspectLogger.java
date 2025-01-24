@@ -12,7 +12,7 @@ import sample.model.ReqInfo;
 
 public class AspectLogger {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(AspectLogger.class);
+	private static final Logger logger = LoggerFactory.getLogger(AspectLogger.class);
 	
 	@Resource(name="reqInfo")
 	private ReqInfo reqInfo;
@@ -31,7 +31,7 @@ public class AspectLogger {
 		reqBuf.append(", AOP 로그");
 		reqBuf.append(", ").append(className).append(".").append(methodName);
 		reqBuf.append("(").append(argBuf.length() > 100 ? argBuf.substring(0, 99) : argBuf.toString()).append(") started");
-		LOGGER.info(reqBuf.toString());
+		logger.debug(reqBuf.toString());
 		
 		Object returnObject = joinPoint.proceed();
 		return returnObject;

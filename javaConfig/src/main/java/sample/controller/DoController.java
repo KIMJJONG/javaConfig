@@ -14,19 +14,19 @@ import sample.service.DoService;
 @Controller
 public class DoController {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(DoController.class);
+	private static final Logger logger = LoggerFactory.getLogger(DoController.class);
 	
 	@Autowired
 	private DoService doService;
 	
 	public DoController() {
-		LOGGER.info("DoController 생성자");
+		logger.debug("DoController 생성자");
 	}
 	
-	@RequestMapping("/getStudent")
+	@RequestMapping("/getStudent.do")
 	public ModelAndView getStudent(@ModelAttribute StudentInfo studentInfo) {
-		LOGGER.info("getStudent.do 호출");
-		LOGGER.info(studentInfo.getStudentId());
+		logger.debug("getStudent.do 호출");
+		logger.debug(studentInfo.getStudentId());
 		doService.getStudentService(studentInfo.getStudentId());
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:index.jsp");

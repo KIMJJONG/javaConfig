@@ -17,7 +17,7 @@ import sample.model.ReqInfo;
 
 public class SessionInterceptor extends HandlerInterceptorAdapter {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(SessionInterceptor.class);
+	private static final Logger logger = LoggerFactory.getLogger(SessionInterceptor.class);
 	
 	private static final Pattern ESCAPE_PATTERN = Pattern.compile("(\\.|\\\\|\\[|\\]|\\^|\\$|\\+|\\{|\\}|\\(|\\)|\\|)");
 	
@@ -33,7 +33,7 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 	private Pattern[] skipUrlPatterns;
 
 	public SessionInterceptor() {
-		LOGGER.info("SessionInterceptor 생성자");
+		logger.debug("SessionInterceptor 생성자");
 	}
 	
 	@Override
@@ -54,16 +54,16 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 		StringBuilder strBuf = new StringBuilder();
 		strBuf.append(reqInfo.getUri());
 		strBuf.append(", Elapsed(").append(endTime - startTime).append("ms)");
-		LOGGER.info(strBuf.toString());
+		logger.debug(strBuf.toString());
 	}
 	
 	private boolean checkSkip(HttpServletRequest request) {
 		if ((this.skipUrlPatterns != null) && (matches(this.skipUrlPatterns, request.getServletPath()))) {
-			LOGGER.trace("{} session check skip", request.getServletPath());
+			logger.debug("{} session check skip", request.getServletPath());
 			return true;
 		}
 		
-		LOGGER.trace("{} session check", request.getServletPath());
+		logger.debug("{} session check", request.getServletPath());
 		return false;
 	}
 	

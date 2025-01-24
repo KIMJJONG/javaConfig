@@ -15,10 +15,10 @@ import org.slf4j.LoggerFactory;
 
 public class TimerCheckFilter implements Filter {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(TimerCheckFilter.class);
+	private static final Logger logger = LoggerFactory.getLogger(TimerCheckFilter.class);
 	
 	public TimerCheckFilter() {
-		LOGGER.info("TimerCheckFilter 실행");
+		logger.debug("TimerCheckFilter 실행");
 	}
 	
 	@Override
@@ -34,13 +34,13 @@ public class TimerCheckFilter implements Filter {
 		
 		chain.doFilter(httpRequest, response);
 		
-		LOGGER.info("================================================");
-		LOGGER.info("refererUrl: {}", referer);
-		LOGGER.info("Request page: {}", requestUri);
+		logger.debug("================================================");
+		logger.debug("refererUrl: {}", referer);
+		logger.debug("Request page: {}", requestUri);
 		long endTime = timer.stop();
-		LOGGER.info("endTime: {}", endTime);
-		LOGGER.info("총 소요시간: {} 초", endTime/1000.0f);
-		LOGGER.info("================================================");
+		logger.debug("endTime: {}", endTime);
+		logger.debug("총 소요시간: {} 초", endTime/1000.0f);
+		logger.debug("================================================");
 	}
 
 	@Override

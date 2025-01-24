@@ -14,15 +14,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class AspectComponent {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(AspectComponent.class);
+	private static final Logger logger = LoggerFactory.getLogger(AspectComponent.class);
 	
 	public AspectComponent() {
-		LOGGER.info("AspectComponent 생성자");
+		logger.debug("AspectComponent 생성자");
 	}
 	
 	@Before("execution(* sample.controller.DoController.*(..))")
 	public void beforeMethod() {
-		LOGGER.info("메소드 시작");
+		logger.debug("메소드 시작");
 	}
 	
 	@Around("execution(* sample.service.*Impl.*(..))")
@@ -35,7 +35,7 @@ public class AspectComponent {
 			e.printStackTrace();
 		}
 		long endTime = System.currentTimeMillis();
-		LOGGER.info("메소드 실행 시간: {}", endTime - startTime, " ms");
+		logger.debug("메소드 실행 시간: {}", endTime - startTime, " ms");
 		return result;
 	}
 	

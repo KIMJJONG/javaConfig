@@ -1,6 +1,5 @@
 package sample.config;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -29,14 +28,16 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import sample.interceptor.SessionInterceptor;
-
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "sample.controller2", includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class))
+@ComponentScan(
+	basePackages = "sample.controller2",
+	useDefaultFilters = false,
+	includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class)
+)
 public class SubServletConfig implements WebMvcConfigurer {
 
-private static final Logger logger = LoggerFactory.getLogger(MainServletConfig.class);
+private static final Logger logger = LoggerFactory.getLogger(SubServletConfig.class);
 	
 	public SubServletConfig() {
 		logger.debug("SubServletConfig 생성자");
@@ -84,16 +85,7 @@ private static final Logger logger = LoggerFactory.getLogger(MainServletConfig.c
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
-		List<String> skipUrls = new ArrayList<String>();
-		skipUrls.add("/getStudent.bo");
-		skipUrls.add("/getEmployee.bo");
-		skipUrls.add("/getSolider.co");
-
-		SessionInterceptor si = new SessionInterceptor();
-		si.setSkipUrls(skipUrls);
 		
-		registry.addInterceptor(si)
-				.addPathPatterns("/**/*");
 	}
 
 	@Override

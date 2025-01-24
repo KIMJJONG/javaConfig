@@ -5,14 +5,14 @@ import org.slf4j.LoggerFactory;
 
 public class TimerChecker {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(TimerChecker.class);
+	private static final Logger logger = LoggerFactory.getLogger(TimerChecker.class);
 	
 	private long currentTime;
 	private long durationTime;
 	private long terminatedTime;
 	
 	public TimerChecker() {
-		LOGGER.info("TimerChecker 실행");
+		logger.debug("TimerChecker 실행");
 		start();
 	}
 	

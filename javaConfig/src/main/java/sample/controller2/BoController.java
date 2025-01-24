@@ -7,10 +7,10 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class BoController {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(BoController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BoController.class);
 	
 	public BoController() {
-		LOGGER.info("BoController 생성자");
+		logger.debug("BoController 생성자");
 	}
 	
 }
