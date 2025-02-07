@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import sample.mapper.postgres.AoMapper;
 import sample.model.EmployeeInfo;
 
-@Service("aoService")
+@Service
 public class AoServiceImpl implements AoService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AoServiceImpl.class);

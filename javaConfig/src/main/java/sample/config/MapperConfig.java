@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-@MapperScan(basePackages = {"sample.mapper.*"})
+@MapperScan
 public class MapperConfig {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MapperConfig.class);
@@ -24,7 +24,7 @@ public class MapperConfig {
 		logger.debug("MapperConfig 생성자");
 	}
 
-	@Bean(name="mariaSqlSession")
+	@Bean
 	public SqlSessionFactoryBean mariaSqlSession(@Qualifier("mariaDataSource") DataSource dataSource) throws IOException {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -34,7 +34,7 @@ public class MapperConfig {
 		return factoryBean;
 	}
 	
-	@Bean(name="postgresSqlSession")
+	@Bean
 	public SqlSessionFactoryBean postgresSqlSession(@Qualifier("postgresDataSource") DataSource dataSource) throws IOException {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -44,7 +44,7 @@ public class MapperConfig {
 		return factoryBean;
 	}
 	
-	@Bean(name="sqlSession")
+	@Bean
 	public SqlSessionFactoryBean sqlSession(@Qualifier("dataSource") DataSource dataSource) throws IOException {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -54,7 +54,7 @@ public class MapperConfig {
 		return factoryBean;
 	}
 	
-	@Bean(name="mariaMapperConfigurer")
+	@Bean
 	public MapperConfigurer mariaMapperConfigurer() {
 		MapperConfigurer mapperConfigurer = new MapperConfigurer();
 		mapperConfigurer.setBasePackage("sample.mapper.maria");
@@ -62,7 +62,7 @@ public class MapperConfig {
 		return mapperConfigurer;
 	}
 	
-	@Bean(name="postgresMapperConfigurer")
+	@Bean
 	public MapperConfigurer postgresMapperConfigurer() {
 		MapperConfigurer mapperConfigurer = new MapperConfigurer();
 		mapperConfigurer.setBasePackage("sample.mapper.postgres");
@@ -70,7 +70,7 @@ public class MapperConfig {
 		return mapperConfigurer;
 	}
 	
-	@Bean(name="mapperConfigurer")
+	@Bean
 	public MapperConfigurer mapperConfigurer() {
 		MapperConfigurer mapperConfigurer = new MapperConfigurer();
 		mapperConfigurer.setBasePackage("sample.mapper.sqlite");

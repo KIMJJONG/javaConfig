@@ -136,6 +136,11 @@
     		<artifactId>postgresql</artifactId>
     		<version>LATEST</version>
 		</dependency>
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
+		    <version>LATEST</version>
+		</dependency>
 
         <!-- mysql이나 oracle 필요시 사용 -->
         <!--

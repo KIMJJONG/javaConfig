@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import sample.mapper.sqlite.CoMapper;
 import sample.model.SoliderInfo;
 
-@Service("coService")
+@Service
 public class CoServiceImpl implements CoService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CoServiceImpl.class);

@@ -4,7 +4,7 @@ import org.egovframe.rte.psl.dataaccess.mapper.Mapper;
 
 import sample.model.EmployeeInfo;
 
-@Mapper("aoMapper")
+@Mapper
 public interface AoMapper {
 	
 	EmployeeInfo getEmployeeInfo(String employeeId);

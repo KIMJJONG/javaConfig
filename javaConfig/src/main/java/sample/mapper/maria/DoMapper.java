@@ -4,7 +4,7 @@ import org.egovframe.rte.psl.dataaccess.mapper.Mapper;
 
 import sample.model.StudentInfo;
 
-@Mapper("doMapper")
+@Mapper
 public interface DoMapper {
 	
 	StudentInfo getStudentInfo(String studentId);
