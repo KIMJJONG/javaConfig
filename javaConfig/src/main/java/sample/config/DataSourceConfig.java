@@ -28,10 +28,10 @@ public class DataSourceConfig {
 		logger.debug("DataSourceConfig 생성자");
 	}
 	
-	@Bean(destroyMethod="close")
+	@Bean
 	@Lazy
     public DataSource mariaDataSource() {
-		logger.debug("--------------------------mariaDataSource 실행---------------------------------");
+		logger.debug("mariaDataSource 실행");
 //        BasicDataSource dataSource = new BasicDataSource();
 //        dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
 //        dataSource.setUrl("jdbc:mariadb://127.0.0.1:3306/mysql");
@@ -56,7 +56,7 @@ public class DataSourceConfig {
 	    return JMX.newMBeanProxy(mBeanServer, objectName, HikariPoolMXBean.class);
 	}
 	
-	@Bean(destroyMethod="close")
+	@Bean
     public DataSource postgresDataSource() {
 		logger.debug("postgresDataSource 실행");
 //        BasicDataSource dataSource = new BasicDataSource();
@@ -74,7 +74,7 @@ public class DataSourceConfig {
         return dataSource;
     }
 	
-	@Bean(destroyMethod="close")
+	@Bean
     public DataSource dataSource() {
 		logger.debug("dataSource 실행");
 //        BasicDataSource dataSource = new BasicDataSource();

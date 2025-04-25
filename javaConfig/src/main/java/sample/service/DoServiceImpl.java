@@ -3,6 +3,7 @@ package sample.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import sample.model.StudentInfo;
 
 @Service
 @Transactional("mariaTransactionManager")
+@Lazy
 public class DoServiceImpl implements DoService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(DoServiceImpl.class);

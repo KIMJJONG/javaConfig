@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({CommonConfig.class, DataSourceConfig.class, MapperConfig.class, TransactionConfig.class})
+@Import({CommonConfig.class, DataSourceConfig.class, MapperConfig.class, TransactionConfig.class, LazyConfig.class})
 public class RootContext {
 
 	private static final Logger logger = LoggerFactory.getLogger(RootContext.class);

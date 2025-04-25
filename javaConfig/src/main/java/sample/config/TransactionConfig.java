@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -21,6 +22,7 @@ public class TransactionConfig {
 	}
 	
 	@Bean
+	@Lazy
 	public DataSourceTransactionManager mariaTransactionManager(@Qualifier("mariaDataSource") DataSource dataSource) {
 		DataSourceTransactionManager manager = new DataSourceTransactionManager();
 		manager.setDataSource(dataSource);

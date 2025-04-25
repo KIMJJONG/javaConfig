@@ -1,5 +1,7 @@
 package sample.controller;
 
+import java.security.NoSuchAlgorithmException;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
@@ -8,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +27,7 @@ public class DoController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(DoController.class);
 	
+	@Lazy
 	@Autowired
 	private DoService doService;
 	
@@ -57,4 +61,5 @@ public class DoController {
 		mav.setViewName("redirect:index.jsp");
 		return mav;
 	}
+
 }

@@ -141,6 +141,13 @@
 		    <artifactId>HikariCP</artifactId>
 		    <version>LATEST</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.jasypt/jasypt -->
+		<dependency>
+		    <groupId>org.jasypt</groupId>
+		    <artifactId>jasypt</artifactId>
+		    <version>1.9.3</version>
+		</dependency>
 
         <!-- mysql이나 oracle 필요시 사용 -->
         <!--
